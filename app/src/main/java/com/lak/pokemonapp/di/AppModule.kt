@@ -3,6 +3,7 @@ package com.lak.pokemonapp.di
 
 
 import com.lak.pokemonapp.model.remote.apiservice.PokeApi
+import com.lak.pokemonapp.repo.PokemonRepoImpl
 import com.lak.pokemonapp.utils.Constant.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -49,5 +50,11 @@ object AppModule {
     fun providePokeApi(retrofit: Retrofit): PokeApi {
         return retrofit.create(PokeApi::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun providePokeRepository(
+        api: PokeApi
+    ) = PokemonRepoImpl(api)
 
  }

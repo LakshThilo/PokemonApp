@@ -1,4 +1,4 @@
-package com.lak.pokemonapp.ui
+package com.lak.pokemonapp.ui.pokelist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
