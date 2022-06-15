@@ -1,11 +1,12 @@
-package com.lak.pokemonapp
+package com.lak.pokemonapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lak.pokemonapp.R
 
-class MainActivity : AppCompatActivity() {
+class PokemonListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_pokemonlist)
     }
 }
