@@ -1,5 +1,6 @@
 package com.lak.pokemonapp.ui.pokelist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -7,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.lak.pokemonapp.databinding.ActivityPokemonlistBinding
 import com.lak.pokemonapp.ui.adapter.PokemonListAdapter
+import com.lak.pokemonapp.ui.pokeInfo.PokeInfoActivity
 import com.lak.pokemonapp.utils.PokemonListState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,7 +42,11 @@ class PokemonListActivity : AppCompatActivity() {
 
     private fun setRecyclerView(){
 
-        pokeAdapter = PokemonListAdapter{ }
+        pokeAdapter = PokemonListAdapter{
+            val intent = Intent(this, PokeInfoActivity::class.java)
+            intent.putExtra("id", it)
+            startActivity(intent)
+        }
 
         binding.pokelistRecyclerView.apply {
             layoutManager = GridLayoutManager(context, 2)
