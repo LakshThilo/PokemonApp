@@ -17,7 +17,6 @@ class PokemonListViewModel @Inject constructor(
     private val repo: PokemonRepoImpl
 ) : ViewModel() {
 
-
     private val _state = MutableLiveData<PokemonListState>()
     val state: LiveData<PokemonListState> = _state
 
@@ -26,7 +25,6 @@ class PokemonListViewModel @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({
-                   // pokemonList.value = it.results
                     emitPokemonList(it)
                 },{
                     emitError(it)
@@ -42,20 +40,3 @@ class PokemonListViewModel @Inject constructor(
     }
 
 }
-
-
-
-/*.enqueue(object : Callback<PokeApiResponse> {
-    override fun onResponse(
-        call: Call<PokeApiResponse>,
-        response: Response<PokeApiResponse>
-    ) {
-        response.body()?.results?.let { list ->
-            pokemonList.postValue(list)
-        }
-    }
-
-    override fun onFailure(call: Call<PokeApiResponse>, t: Throwable) {
-        call.cancel()
-    }
-})*/
